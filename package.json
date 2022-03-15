@@ -4,7 +4,7 @@
   "description": "testing biz analyst apis",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "test:watch": "jest --watch"
   },
   "author": "Ashish Bhutra",

@@ -1,25 +1,18 @@
-const supertest = require('supertest');
-const request = supertest('https://api.bizanalyst.in/user');
+const req = require('../baseTest')
+const testObject = require('../../test-data/user.json')
 
-import * as Faker from 'faker';
-
-import { SignUpObject } from './../../models/sign-up/request/signup-object';
-
-// const email = Faker.internet.email();
-const phone = '9999999999';
-const countryCode = '+91';
-const userName = Faker.name.firstName();
+import { SignUpData } from '../../models/sign-up/request/signup-data'
 
 describe('Signup', () => {
-  const singUp = new SignUpObject();
-  const singUpPayLoadBadData = singUp.createSignupObject('', phone, countryCode, userName);
-  // const singUpPayLoad = singUp.createSignupObject(email, phone, countryCode, userName);
-
-  it('Bad request', async () => {
-    await request
+  it.each(testObject)('Sign up test', (signupData: any) => {
+    const inputData: SignUpData = signupData.input
+    req.request
       .post('/')
-      .set('Content-Type',  'application/json')
-      .send(singUpPayLoadBadData)
-      .expect(400);
-  });
-});
+      .set('Content-Type', 'application/json')
+      .send(inputData)
+      .expect(signupData.response)
+      .then((res: any) => {
+        console.log(JSON.stringify(res.status))
+      })
+  })
+})

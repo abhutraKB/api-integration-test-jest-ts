@@ -1,0 +1,30 @@
+[
+  {
+    "input": {
+      "countryCode": "",
+      "email": "",
+      "ipAddress": "",
+      "partnerCode": "",
+      "password": "",
+      "phone": "",
+      "source": "",
+      "subscriptionVersion": "",
+      "userName": ""
+    },
+    "response": 400
+  },
+  {
+    "input": {
+      "countryCode": "+91",
+      "email": "ashishbhutra88@gmail.com",
+      "ipAddress": "49.36.34.191",
+      "partnerCode": "",
+      "password": "Ashish@09",
+      "phone": "96447777",
+      "source": "",
+      "subscriptionVersion": "Trial",
+      "userName": "Ashish Bhutra"
+    },
+    "response": 401
+  }
+]

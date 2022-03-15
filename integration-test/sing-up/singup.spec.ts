@@ -5,9 +5,9 @@ const testObject = require('../../test-data/user.json')
 import { SignUpData } from '../../models/sign-up/request/signup-data'
 
 describe('Signup', () => {
-  it.each(testObject)('Sign up test', (signupData: any) => {
+  it.each(testObject)('Sign up test', async (signupData: any) => {
     const inputData: SignUpData = signupData.input
-    request
+    await request
       .post('/')
       .set('Content-Type', 'application/json')
       .send(inputData)
